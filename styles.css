@@ -16,6 +16,7 @@
     padding-top: 5px;
     padding: 20px;
     padding-bottom: 20px;
+    font-size: xx-large;
     color: white
 }
 
@@ -23,14 +24,28 @@
     background-color: #494e54;
     color: white;
     height: 100%;
-    width: 226px;
+    width: 400px;
     font-size: medium;
     overflow-x: hidden;
     position: fixed;
 }
 
 div.main{
-    margin-left: 226px;
+    margin-left: 400px;
+}
+
+a.whitetext{
+    color: white;
+    font-size: x-large;
+    text-decoration: none;
+}
+
+a.whitetext:hover{
+    color: #cccccc;
+}
+
+a.whitetext:link{
+    color: white;
 }
 
 body{
