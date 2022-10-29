@@ -38,6 +38,7 @@
 
 div.main{
     margin-left: 0%;
+    text-align:center;
 }
 
 a.whitetext{
@@ -52,6 +53,13 @@ a.whitetext:hover{
 
 a.whitetext:link{
     color: white;
+}
+
+.centered-picture{
+    display: block;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 body{
