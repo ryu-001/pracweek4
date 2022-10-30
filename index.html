@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="sidebar" id="sidebar">
-            <img src="close.png" class="menu-image" onclick="closeNav()" style="text-align: right;" alt="a close button which can be pressed to close the sidebar that is open right now">
+            <button type="button" class="btn-close btn-close-white" aria-label="Click to close sidebar" onclick="closeNav()"></button>
             <br>
             <h4 class="whitetext" style="font-size: xx-large;"><b>&nbspList of Contents</b></h4>
             <br>
@@ -28,17 +28,48 @@
         </header>    
         
         <div class="main" id="main">
+            <!--breadcrumb taken from bootstrap documentation-->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">Home</li>
+                </ol>
+            </nav>
             <h2><b>Contributions of Computer Science to Society</b></h2>
-            <hr>
-
             <h3>In this page, you can find the various ways in which computing has contributed to society.</h3>
+            <hr>
+            <div class="row row-cols-1 row-cols-md-4 g-5 mx-auto" style="align-content:center;">
+                <div class="card col" style="width: 20rem;">
+                    <img src="enviromedia/man_fishing.jpg" class="card-img-top" alt="image of a man fishing">
+                    <div class="card-body">
+                        <h5 class="card-title">Computer Science contributions to Fishing</h5>
+                        <p class="card-text">Check out how Computing has contributed to the fishing scene.</p>
+                        <a href="enviropage.html" class="btn btn-success">Read</a>
+                    </div>
+                </div>
+                <div class="card col" style="width: 20rem; right:0;">
+                    <img src="IMAGE HERE" class="card-img-top" alt="IMAGE HERE">
+                    <div class="card-body">
+                        <h5 class="card-title">Computer Science contributions to Entertainment</h5>
+                        <p class="card-text">Check out how Computing has contributed to entertainment.</p>
+                        <a href="jerry/entertainment.html" class="btn btn-success">Read</a>
+                    </div>
+                </div>
+                <div class="card col" style="width: 20rem; right:0;">
+                    <img src="IMAGE HERE" class="card-img-top" alt="IMAGE HERE">
+                    <div class="card-body">
+                        <h5 class="card-title">Computer Science contributions to Recycling</h5>
+                        <p class="card-text">Check out how Computing has contributed to recycling waste.</p>
+                        <a href="recycling.html" class="btn btn-success">Read</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!--https://www.w3schools.com/howto/howto_js_sidenav.asp referenced to implement sidebar-->
         <script>
             function openNav(){
-                document.getElementById("sidebar").style.width = "18%";
-                document.getElementById("main").style.marginLeft = "18%";
+                document.getElementById("sidebar").style.width = "20%";
+                document.getElementById("main").style.marginLeft = "20%";
             }
             function closeNav(){
                 document.getElementById("sidebar").style.width = "0%";
