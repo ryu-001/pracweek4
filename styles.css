@@ -1,5 +1,4 @@
-jerry
-.button {
+.button-jerry {
     background-color: black;
     border: none;
     color: white;
@@ -13,5 +12,56 @@ jerry
 }
 
 .navbar-top{
-    background-color: darkgreen;
+    background-color: #0a2317;
+    padding: 10px;
+    padding-bottom: 20px;
+    font-size: xx-large;
+    color: white
+}
+
+.menu-image{
+    opacity: 100%;
+}
+
+.menu-image:hover{
+    opacity:50%
+}
+
+.sidebar{
+    background-color: #314e40;
+    color: white;
+    height: 100%;
+    width: 0%;
+    overflow-x: hidden;
+    position: fixed;
+}
+
+div.main{
+    margin-left: 0%;
+}
+
+a.whitetext{
+    color: white;
+    font-size: x-large;
+    text-decoration: none;
+}
+
+a.whitetext:hover{
+    color: #aeaeae;
+}
+
+a.whitetext:link{
+    color: white;
+}
+
+.centered-picture{
+    display: block;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body{
+    background-color: white;
+    font-family: Georgia, serif;
 }
