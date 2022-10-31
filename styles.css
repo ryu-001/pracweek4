@@ -36,6 +36,25 @@
     position: fixed;
 }
 
+.spacing{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.fishing-nav{
+    background-color: #314e40;
+    color: white;
+}
+
+.fishing-subtitle{
+    text-decoration:underline;
+    padding-left: auto;
+    margin-left:auto;
+}
+.fishing-paragraph{
+    font-size: large;
+}
+
 div.main{
     margin-left: 0%;
 }
