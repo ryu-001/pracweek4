@@ -1,14 +1,386 @@
-<head lang="eng">
-    <title>
+<html lang="en">
+    <head>
         <title>Digital Entertainment</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="styles.css" rel="stylesheet"/>
-    </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link href="../styles.css" rel="stylesheet"/>
+    </head>
+    <body> 
+        <body>
+            <div class="sidebar" id="sidebar">
+                <button type="button" class="btn-close btn-close-white" aria-label="Click to close sidebar" onclick="closeNav()"></button>
+                <br>
+                <h4 class="whitetext" style="font-size: xx-large;"><b>&nbspList of Contents</b></h4>
+                <br>
+                <ul>
+                    <li><a class="whitetext" href="../enviropage.html">Computing in Fishing</a></li>
+                    <li><a class="whitetext" href="entertainment.html">Computing in Entertainment</a></li>
+                    <li><a class="whitetext" href="../recycling.html">Computing in Recycling</a></li>
+                    <li><a class="whitetext" href="../autosailing.html">Computing in Sailing</a></li>
+                </ul>
+                <br>
+                <a class="whitetext" href="../authors.html">&nbspAbout the authors</a>
+            </div>    
+    
+            <header class='navbar-top shadow p-3'>
+                <img src="../menu.png" class="menu-image" onclick="openNav()" alt="menu button, press to open a sidebar with a list of pages">
+                <a class="whitetext" href="../index.html" style="font-size: 35;">Home</a>
+            </header>    
+            <!--https://www.w3schools.com/howto/howto_js_sidenav.asp referenced to implement sidebar-->
+            <script>
+                function openNav(){
+                    document.getElementById("sidebar").style.width = "20%";
+                    document.getElementById("main").style.marginLeft = "20%";
+                }
+                function closeNav(){
+                    document.getElementById("sidebar").style.width = "0%";
+                    document.getElementById("main").style.marginLeft = "0%";
+                }
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+            <h1><b><em>Digital Entertainment</em></b></h1>
+            <p><h3>
+                Digital Entertainment is a vast and broad topic. It includes,
+                <ul>
+                    <li>Video Games</li>
+                    <li>Streaming Service</li>
+                    <li>Social Media</li>
+                </ul>
+            </p></h3>
+            <hr>
+            <h3><b>Video Games</b></h3>
+            <h4><b>Tetris</b></h4>
+            <style>
+                canvas{
+                    border: 3px solid black;
+                }
+            </style>
+            <canvas width="320" height="640" id="game"></canvas>
+            <script>
 
-</head>
-<body>
-    <a href="videogame.html" class="button">Video Games</a>
-    <a href="socialmedia.html" class="button">Social Media</a>
-    <a href="streaming.html" class="button">Streaming Service</a>
-    </script>
-</body>
+            function getRandomInt(min, max) {
+              min = Math.ceil(min);
+              max = Math.floor(max);
+            
+              return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            
+            
+            function generateSequence() {
+              const sequence = ['I', 'J', 'L', 'O', 'S', 'T', 'Z'];
+            
+              while (sequence.length) {
+                const rand = getRandomInt(0, sequence.length - 1);
+                const name = sequence.splice(rand, 1)[0];
+                tetrominoSequence.push(name);
+              }
+            }
+            
+           
+            function getNextTetromino() {
+              if (tetrominoSequence.length === 0) {
+                generateSequence();
+              }
+            
+              const name = tetrominoSequence.pop();
+              const matrix = tetrominos[name];
+            
+            
+              const col = playfield[0].length / 2 - Math.ceil(matrix[0].length / 2);
+            
+         
+              const row = name === 'I' ? -1 : -2;
+            
+              return {
+                name: name,      
+                matrix: matrix,  
+                row: row,        
+                col: col         
+              };
+            }
+            
+            
+            function rotate(matrix) {
+              const N = matrix.length - 1;
+              const result = matrix.map((row, i) =>
+                row.map((val, j) => matrix[N - j][i])
+              );
+            
+              return result;
+            }
+            
+            
+            function isValidMove(matrix, cellRow, cellCol) {
+              for (let row = 0; row < matrix.length; row++) {
+                for (let col = 0; col < matrix[row].length; col++) {
+                  if (matrix[row][col] && (
+                      
+                      cellCol + col < 0 ||
+                      cellCol + col >= playfield[0].length ||
+                      cellRow + row >= playfield.length ||
+                      
+                      playfield[cellRow + row][cellCol + col])
+                    ) {
+                    return false;
+                  }
+                }
+              }
+            
+              return true;
+            }
+            
+            
+            function placeTetromino() {
+              for (let row = 0; row < tetromino.matrix.length; row++) {
+                for (let col = 0; col < tetromino.matrix[row].length; col++) {
+                  if (tetromino.matrix[row][col]) {
+            
+                   
+                    if (tetromino.row + row < 0) {
+                      return showGameOver();
+                    }
+                    
+                    playfield[tetromino.row + row][tetromino.col + col] = tetromino.name;
+                  }
+                }
+              }
+            
+              
+              for (let row = playfield.length - 1; row >= 0; ) {
+                if (playfield[row].every(cell => !!cell)) {
+                  score++;
+                  
+                  for (let r = row; r >= 0; r--) {
+                    for (let c = 0; c < playfield[r].length; c++) {
+                      playfield[r][c] = playfield[r-1][c];
+                    }
+                  }
+                }
+                else {
+                  row--;
+                  
+                }
+              }
+              
+              tetromino = getNextTetromino();
+            }
+            
+           
+            function showGameOver() {
+              cancelAnimationFrame(rAF);
+              gameOver = true;
+            
+              context.fillStyle = 'black';
+              context.globalAlpha = 0.75;
+              context.fillRect(0, canvas.height / 2 - 30, canvas.width, 60);
+            
+              context.globalAlpha = 1;
+              context.fillStyle = 'white';
+              context.font = '36px monospace';
+              context.textAlign = 'center';
+              context.textBaseline = 'middle';
+              context.fillText('GAME OVER!', canvas.width / 2, canvas.height / 2);
+            }
+            
+            const canvas = document.getElementById('game');
+            const context = canvas.getContext('2d');
+            const grid = 32;
+            const tetrominoSequence = [];
+            
+            
+            const playfield = [];
+            
+            
+            for (let row = -2; row < 20; row++) {
+              playfield[row] = [];
+            
+              for (let col = 0; col < 10; col++) {
+                playfield[row][col] = 0;
+              }
+            }
+            
+            
+            const tetrominos = {
+              'I': [
+                [0,0,0,0],
+                [1,1,1,1],
+                [0,0,0,0],
+                [0,0,0,0]
+              ],
+              'J': [
+                [1,0,0],
+                [1,1,1],
+                [0,0,0],
+              ],
+              'L': [
+                [0,0,1],
+                [1,1,1],
+                [0,0,0],
+              ],
+              'O': [
+                [1,1],
+                [1,1],
+              ],
+              'S': [
+                [0,1,1],
+                [1,1,0],
+                [0,0,0],
+              ],
+              'Z': [
+                [1,1,0],
+                [0,1,1],
+                [0,0,0],
+              ],
+              'T': [
+                [0,1,0],
+                [1,1,1],
+                [0,0,0],
+              ]
+            };
+            
+            
+            const colors = {
+              'I': 'cyan',
+              'O': 'yellow',
+              'T': 'purple',
+              'S': 'green',
+              'Z': 'red',
+              'J': 'blue',
+              'L': 'orange'
+            };
+            
+            let count = 0;
+            let tetromino = getNextTetromino();
+            let rAF = null;  
+            let gameOver = false;
+            let score = 0;
+            
+            function loop() {
+              rAF = requestAnimationFrame(loop);
+              context.clearRect(0,0,canvas.width,canvas.height);
+              context.fillStyle = "#000000";
+              context.font = "14px verdana"
+              context.fillText("score: " + score, 10, 30)
+              
+              for (let row = 0; row < 20; row++) {
+                for (let col = 0; col < 10; col++) {
+                  if (playfield[row][col]) {
+                    const name = playfield[row][col];
+                    context.fillStyle = colors[name];
+            
+                   
+                    context.fillRect(col * grid, row * grid, grid-1, grid-1);
+                  }
+                }
+              }
+            
+              
+              if (tetromino) {
+            
+                
+                if (++count > 35) {
+                  tetromino.row++;
+                  count = 0;
+            
+                  
+                  if (!isValidMove(tetromino.matrix, tetromino.row, tetromino.col)) {
+                    tetromino.row--;
+                    
+                    placeTetromino();
+                  }
+                }
+            
+                context.fillStyle = colors[tetromino.name];
+            
+                for (let row = 0; row < tetromino.matrix.length; row++) {
+                  for (let col = 0; col < tetromino.matrix[row].length; col++) {
+                    if (tetromino.matrix[row][col]) {
+            
+                      
+                      context.fillRect((tetromino.col + col) * grid, (tetromino.row + row) * grid, grid-1, grid-1);
+                    }
+                  }
+                }
+              }
+            }
+            
+            
+            document.addEventListener('keydown', function(e) {
+              if (gameOver) return;
+            
+              
+              if (e.which === 65 || e.which === 68) {
+                const col = e.which === 65
+                  ? tetromino.col - 1
+                  : tetromino.col + 1;
+            
+                if (isValidMove(tetromino.matrix, tetromino.row, col)) {
+                  tetromino.col = col;
+                }
+              }
+            
+              
+              if (e.which === 87) {
+                const matrix = rotate(tetromino.matrix);
+                if (isValidMove(matrix, tetromino.row, tetromino.col)) {
+                  tetromino.matrix = matrix;
+                }
+              }
+            
+              
+              if(e.which === 83) {
+                const row = tetromino.row + 1;
+            
+                if (!isValidMove(tetromino.matrix, row, tetromino.col)) {
+                  tetromino.row = row - 1;
+            
+                  placeTetromino();
+                  return;
+                }
+            
+                tetromino.row = row;
+              }
+            });
+            
+            function toggle(){
+            var sta = document.getElementById("button");
+            var re = document.getElementById("restart");
+            var hidden = sta.getAttribute("hidden");
+            if (hidden) {
+              sta.removeAttribute("hidden");
+              re.setAttribute("hidden", "hidden");
+            } else {
+              sta.setAttribute("hidden", "hidden");
+              re.removeAttribute("hidden");
+            }
+            }
+            function restartgame(){
+                cancelAnimationFrame(rAF);
+                context.clearRect(0,0,canvas.width,canvas.height);
+                playfield.length = 0
+                for (let row = -2; row < 20; row++) {
+                  playfield[row] = [];
+                
+                  for (let col = 0; col < 10; col++) {
+                    playfield[row][col] = 0;
+                  }
+                }
+                tetromino = getNextTetromino();       
+                score = 0;   
+            }
+        </script>
+        <div>
+          <button id="button" type="button" onclick="requestAnimationFrame(loop);toggle();">Start</button>
+          <button id="restart" type="button" onclick="toggle();restartgame();" hidden="none">Restart</button>
+        </div>
+        <p>
+          <h3>Streaming Services such as: <a href="https://www.netflix.com/gb/"><img border="0" alt="netflix" src="netflix.png" width="200" height="100"></a></h3>
+        </p>
+        
+        <p>
+          <h3>Social Media such as: <a href="https://www.instagram.com"><img border="0" alt="netflix" src="instagram.png" width="100" height="100"></a></h3>
+        </p>
+        
+    </body>
+</html>
