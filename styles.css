@@ -48,11 +48,15 @@
 
 .fishing-subtitle{
     text-decoration:underline;
-    padding-left: auto;
-    margin-left:auto;
 }
 .fishing-paragraph{
     font-size: large;
+    line-height:26px;
+    max-width: 70ch;
+}
+
+.fish-footer{
+    background-color: #0a2317;
 }
 
 div.main{

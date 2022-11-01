@@ -7,27 +7,34 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top fishing-nav">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">CS contributions</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li><a href="recycling.html">Recycling</a></li>
-            <li><a href="jerry/entertainment.html">Entertainment</a></li>
-            <li><a href="authors.html">Authors</a></li>
-          </ul>
-        </div>
-      </nav>
+      <div class="sidebar" id="sidebar">
+        <button type="button" class="btn-close btn-close-white" aria-label="Click to close sidebar" onclick="closeNav()"></button>
+        <br>
+        <h4 class="whitetext" style="font-size: xx-large;"><b>&nbspList of Contents</b></h4>
+        <br>
+        <ul>
+            <li><a class="whitetext" href="enviropage.html">Computing in Fishing</a></li>
+            <li><a class="whitetext" href="jerry/entertainment.html">Computing in Entertainment</a></li>
+            <li><a class="whitetext" href="recycling.html">Computing in Recycling</a></li>
+            <li><a class="whitetext" href="autosailing.html">Computing in Sailing</a></li>
+        </ul>
+        <br>
+        <a class="whitetext" href="authors.html">&nbspAbout the authors</a>
+    </div>    
+
+    <header class='navbar-top shadow p-3'>
+        <img src="menu.png" class="menu-image" onclick="openNav()" alt="menu button, press to open a sidebar with a list of pages">
+        <a class="whitetext" href="index.html" style="font-size: 35;">Home</a>
+    </header>   
     <br>
     <h1 class="text-center display-4">computer science contributions to fishing </h1>
     <br>
     <img src = "enviromedia/man_fishing.jpg" class="rounded mx-auto d-block" alt = "man on small boat throwing a net out into the sea" height="450"> 
     <br>
-    <div>
-        <h2 class="fishing-subtitile"><b><u>Algorithmic prediction of fishing populations</u></b></h2>
+    <div class="col-md-8 offset-md-2">
+        <h2 class="fishing-subtitile "><b><u>Algorithmic prediction of fishing populations</u></b></h2>
         <br>
-        <p class="fishing-paragraph">Seafood plays an essential role in feeding the worlds growing population, 
+        <p class="fishing-paragraph ">Seafood plays an essential role in feeding the worlds growing population, 
             with 17% of meat consumption being fish products. Due to historical overfishing and climate change
             over half of golabl fisheries are in decline or overexploited which poses a threat to global food demand.
             Today, many fisheries are working on rebuilding previously overfished species such as the blue fin tuna
@@ -40,7 +47,7 @@
             and revert the environmental damage that has been caused.
         </p>
     </div>
-    <div>
+    <div class="col-md-8 offset-md-2">
         <h2 class="fishing-subtitile"><b><u>Computer Science contributions to recreational fishing</u></b></h2>
         <br>
         <p class="fishing-paragraph">
@@ -57,6 +64,11 @@
 
         </p>
         
-
+    
     </div>
+    <footer class="fish-footer">
+      <br>
+      <p>by Lukas Rackys</p>
+      <br>
+    </footer>
 </body>
