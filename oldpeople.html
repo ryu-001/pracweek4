@@ -1,0 +1,81 @@
+<html lang="en">
+    <head>
+        <title>Caring for the Elderly</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link href="styles.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="sidebar" id="sidebar">
+            <button type="button" class="btn-close btn-close-white" aria-label="Click to close sidebar" onclick="closeNav()"></button>
+            <br>
+            <h4 class="whitetext" style="font-size: xx-large;"><b>&nbspList of Contents</b></h4>
+            <br>
+            <a class="whitetext" href="index.html">Back to Home</a>
+            <ul>
+                <li><a class="whitetext" href="fishing.html">Computing in Fishing</a></li>
+                <li><a class="whitetext" href="jerry/entertainment.html">Computing in Entertainment</a></li>
+                <li><a class="whitetext" href="recycling.html">Computing in Recycling</a></li>
+                <li><a class="whitetext" href="autosailing.html">Computing in Sailing</a></li>
+            </ul>
+            <br>
+            <a class="whitetext" href="authors.html">&nbspAbout the authors</a>
+        </div>    
+
+        <header class='navbar-top shadow p-3'>
+            <img src="menu.png" class="menu-image" onclick="openNav()" alt="menu button, press to open a sidebar with a list of pages">
+            <a class="whitetext" href="index.html" style="font-size: 35;">Home</a>
+        </header>    
+        
+        <div class="main" id="main">
+            <!--breadcrumb taken from bootstrap documentation-->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Caring for the Elderly</li>
+                </ol>
+            </nav>
+            <h2><b>How computing is used to care for the elderly in Japan</b></h2>
+            <p>Rosmino, Claudio. “Japan’s Technology Leads the Way in Caring for the Elderly.” Euronews, 29 Oct. 2019, <a href="www.euronews.com/next/2019/10/29/japan-leads-the-way-with-elderly-care.">Source</a></p>
+            <div>
+                <br><img src="oldpplmedia/oldmannewspaper.jpg" alt="an elderly man reading newspaper" style="width: 250px; float: right;">
+                <h4>There are a lot of elderly people.</h4>
+                <p>A trend that is observed recently in developed areas of the world is the natural decrease in population, and the increasing aging population.</p>
+                <p>While people are living longer and longer, this can also be a major challenge to the healthcare system for a country.</p>
+                <p>Japan, however, has decided to find digital methods to solve this problem.</p>
+                <h4>How does it work?</h4>
+                <p>Japan's recent efforts are on anonymously processed patient data; data such as blood pressure or heartrate are sent to the hospital.</p>
+                <p>This data can then be uploaded to the servers by the nurse, which allows a greater amount of data which will make medical care effective and precise.</p>
+                <p>The best part is that the patient does not need to go to the nearest hospital for such data to be collected - this is all done in the morning in their bedrooms.</p>
+            </div>
+            <br>
+            <div>
+                <img src="oldpplmedia/allterrainwheelchair.jpg" alt="an all-terrain wheelchair" style="width:250px; float:left">
+                <h4>AI Navigated Wheelchairs</h4>
+                <p>Many elderly people suffer from immobility as their legs aren't quite what they were like years before.</p>
+                <p>While traditional wheelchairs are useful, it has the critical flaw that it requires another person to push it.</p>
+                <p>And although electric wheelchairs solve the problem, the slower reaction timing of the elderly tend to lead to accidents with electric wheelchairs.</p>
+                <p>There is also the risk of the person getting lost while driving around on their wheelchair.</p>
+                <p>Therefore with automated driving, users of AI-Navigated wheelchairs will arrive to their destination in the most efficient route, and without running anyone over.</p>
+            </div>
+            <h3>How does this help the young people in any way?</h3>
+            <p>Firstly, getting these tasks automated means that less people are needed to care for the elderly.</p>
+            <p>This means less tax money goes to the elderly and more towards things that require monetary solutions.</p>
+            <p>Secondly, computer science students like us have more jobs when we graduate.</p>
+        </div>
+        <br>
+        <p>Thank you for reading. All images used are from the public domain.</p>
+        <script>
+            function openNav(){
+                document.getElementById("sidebar").style.width = "20%";
+                document.getElementById("main").style.marginLeft = "20%";
+            }
+            function closeNav(){
+                document.getElementById("sidebar").style.width = "0%";
+                document.getElementById("main").style.marginLeft = "0%";
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    </body>
+</html>
