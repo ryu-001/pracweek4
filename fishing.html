@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!-- Feedback: Missing <html> tag -->
 <head>    
     <title>Fishing</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -10,7 +10,7 @@
       <div class="sidebar" id="sidebar">
         <button type="button" class="btn-close btn-close-white" aria-label="Click to close sidebar" onclick="closeNav()"></button>
         <br>
-        <h4 class="whitetext" style="font-size: xx-large;"><b>&nbspList of Contents</b></h4>
+        <h4 class="whitetext" style="font-size: xx-large;"><b>&nbspList of Contents</b></h4> <!-- Feedback: Missing semicolon &nbsp; -->
         <br>
         <ul>
             <li><a class="whitetext" href="enviropage.html">Computing in Fishing</a></li>
@@ -19,13 +19,15 @@
             <li><a class="whitetext" href="autosailing.html">Computing in Sailing</a></li>
         </ul>
         <br>
-        <a class="whitetext" href="authors.html">&nbspAbout the authors</a>
+        <a class="whitetext" href="authors.html">&nbspAbout the authors</a> <!-- Feedback: Missing semicolon &nbsp; -->
     </div>    
 
     <header class='navbar-top shadow p-3'>
         <img src="menu.png" class="menu-image" onclick="openNav()" alt="menu button, press to open a sidebar with a list of pages">
         <a class="whitetext" href="index.html" style="font-size: 35;">Home</a>
-    </header>   
+    </header>
+<!-- Feedback: Missing navbar script, navbar doesn't work -->
+
     <br>
     <h1 class="text-center display-4">computer science contributions to fishing </h1>
     <br>
