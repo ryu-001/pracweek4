@@ -1,13 +1,14 @@
+<!-- Feedback: missing DOCTYPE -->
 <html lang="en">
     <head>
         <title>Digital Entertainment</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <link href="../styles.css" rel="stylesheet"/>
+        <link href="../styles.css" rel="stylesheet"/> <!-- Feedback: trailing / not needed -->
     </head>
     <body> 
-        <body>
+        <body> <!-- Feedback: duplicated <body> -->
             <div class="sidebar" id="sidebar">
                 <button type="button" class="btn-close btn-close-white" aria-label="Click to close sidebar" onclick="closeNav()"></button>
                 <br>
@@ -42,7 +43,7 @@
             <h1><b><em>Digital Entertainment</em></b></h1>
             <p><h3>
                 Digital Entertainment is a vast and broad topic. It includes,
-                <ul>
+                <ul> <!-- Feedback: <ul> not permitted inside a <h3> -->
                     <li>Video Games</li>
                     <li>Streaming Service</li>
                     <li>Social Media</li>
@@ -51,6 +52,7 @@
             <hr>
             <h3><b>Video Games</b></h3>
             <h4><b>Tetris</b></h4>
+            <!-- Feedback: <style> is not allowed in <body> -->
             <style>
                 canvas{
                     border: 3px solid black;
@@ -370,11 +372,13 @@
                 score = 0;   
             }
         </script>
+        <!-- No reference or acknowledgement for use of: https://gist.github.com/straker/3c98304f8a6a9174efd8292800891ea1 -->
         <div>
           <button id="button" type="button" onclick="requestAnimationFrame(loop);toggle();">Start</button>
           <button id="restart" type="button" onclick="toggle();restartgame();" hidden="none">Restart</button>
         </div>
         <p>
+          <!-- Feedback: h3 not valid inside <p> -->
           <h3>Streaming Services such as: <a href="https://www.netflix.com/gb/"><img border="0" alt="netflix" src="netflix.png" width="200" height="100"></a></h3>
         </p>
         
